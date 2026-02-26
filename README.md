@@ -15,7 +15,7 @@ React-приложение для управления задачами.
 git clone https://github.com/zemskovik/mirea-dpo-react.git
 
 # Переход в директорию проекта
-cd todo-manager
+cd mirea-dpo-react
 
 # Установка зависимостей
 npm install
