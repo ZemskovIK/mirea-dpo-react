@@ -10,12 +10,15 @@ function App() {
     const saved = localStorage.getItem('todos');
     return saved ? JSON.parse(saved) : [];
   });
+
   // Состояние для текущего фильтра
   const [filter, setFilter] = useState('all');
+
   // Сохраняем задачи в localStorage при каждом изменении
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
   // Добавление новой задачи
   const addTodo = (text) => {
     const newTodo = {
@@ -25,24 +28,29 @@ function App() {
     };
     setTodos([...todos, newTodo]);
   };
+
   // Переключение статуса задачи
   const toggleTodo = (id) => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
+
   // Удаление задачи
   const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
+
   // Фильтрация задач
   const filteredTodos = todos.filter(todo => {
     if (filter === 'active') return !todo.completed;
     if (filter === 'completed') return todo.completed;
     return true; // 'all'
   });
+
   // Подсчет активных задач
   const activeCount = todos.filter(todo => !todo.completed).length;
+
   return (
     <div style={{
       maxWidth: '600px',

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 function AddTodoForm({ onAdd }) {
   const [text, setText] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim()) {
@@ -8,6 +9,7 @@ function AddTodoForm({ onAdd }) {
       setText('');
     }
   };
+
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
